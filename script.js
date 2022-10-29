@@ -26,28 +26,40 @@ for (let i = 0; i < accordion.length; i++){
         if (panel.style.display === "block") {
             panel.style.display = "none";
             if (i === 0){
+                accordion[i].style.borderTop = "1px solid rgba(0,0,0, 0.6)";
+                accordion[i].style.borderRight = "1px solid rgba(0,0,0, 0.6)";
+                accordion[i].style.borderLeft= "1px solid rgba(0,0,0, 0.6)";
                 accordion[i].style.borderBottom = "1px solid rgba(0,0,0, 0.3)";
-                accordion[i+1].style.borderTop = "0";
                 acc1Span.style.transform = "rotate(90deg)";
             }
             if (i === 1){
-
+                accordion[i].style.borderRight = "1px solid rgba(0,0,0, 0.6)";
+                accordion[i].style.borderLeft = "1px solid rgba(0,0,0, 0.6)";
+                accordion[i].style.borderBottom = "1px solid rgba(0,0,0, 0.3)";
                 acc2Span.style.transform = "rotate(90deg)";
             } else if (i === 2){
+                accordion[i].style.border = "1px solid rgba(0,0,0, 0.6)";
                 accordion[i].style.borderRadius = "0px 0px 5px 5px";
                 acc3Span.style.transform = "rotate(90deg)";
-                accordion[i].style.borderBottom = "1px solid rgba(0,0,0, 0.7)";
+                accordion[i].style.borderTop = "0";
+                accordion[i].style.borderBottom = "1px solid rgba(0,0,0, 0.6)";
             }
         } else {
             if (i === 0){
+                panel.style.borderBottom = "1px solid rgba(0,0,0, 0.3)";
+                accordion[i].style.border = "1px solid rgba(0,0,0, 0.6)";
                 accordion[i].style.borderBottom = "1px solid rgba(0,0,0, 0.3)";
-                accordion[i+1].style.borderTop = "1px solid rgba(0,0,0, 0.3)";
                 acc1Span.style.transform = "rotate(-90deg)";
             }
             if (i === 1){
+                accordion[i].style.border = "1px solid rgba(0,0,0, 0.6)";
+                accordion[i].style.borderTop = "0";
+                accordion[i].style.borderBottom = "1px solid rgba(0,0,0, 0.3)";
                 panel.style.borderBottom = "1px solid rgba(0,0,0, 0.3)";
                 acc2Span.style.transform = "rotate(-90deg)";
             } else if (i === 2){
+                accordion[i].style.border = "1px solid rgba(0,0,0, 0.6)";
+                accordion[i].style.borderTop = "0";
                 accordion[i].style.borderRadius = "0px 0px 0px 0px";
                 accordion[i].style.borderBottom = "1px solid rgba(0,0,0, 0.3)";
                 acc3Span.style.transform = "rotate(-90deg)";

@@ -434,8 +434,8 @@ footer{
     text-justify: inter-word;
     color: rgba(0,0,0, 0.7);
     padding: 15px 15px;
-    border-right: 1px solid rgba(0,0,0, 1);
-    border-left: 1px solid rgba(0,0,0, 1);
+    border-right: 1px solid rgba(0,0,0, 0.6);
+    border-left: 1px solid rgba(0,0,0, 0.6);
     display: block;
     font-size: 14px;
     transition: all 0.3s;

@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://umrhkm.github.io/website-latihan-1/#" />
     <meta property="og:title" content="Website 1 | Website Statis Pertama" />
     <meta property="og:description"
-        content="Website ini hanya dibangun menggunakan HTML dan CSS seingga belum ada interaksi yang benar-benar dapat bekerja. Dengan website ini, aku berusaha buat nerapin hal-hal yang udah aku pelajarin per 29 Oktober 2022." />
+        content="Website ini hanya dibangun menggunakan HTML, CSS, dan sedikit JavaScript sehingga belum banyak interaksi yang benar-benar dapat bekerja. Dengan website ini, aku berusaha buat nerapin hal-hal yang udah aku pelajarin per 29 Oktober 2022." />
 
 </head>
 
@@ -83,7 +83,7 @@
                     <h2>Accordion</h2>
                     <div class="accordion-list">
                         <button class="accordion acc-satu">Siapa aku? <span class="acc1-span">&#x3e</span></button>
-                        <div class="panel">
+                        <div class="panel panelSatu">
                             <p>Aku merupakan mahasiswa Institut Teknologi Bandung angkatan 2020 jurusan Sistem dan
                                 Teknologi
                                 Informasi. Aku berusia 20 tahun dan tertarik di bidang front-end web developer. Salkennn
@@ -91,13 +91,13 @@
                         </div>
                         <button class="accordion acc-dua">Apa makanan favoritku?<span
                                 class="acc2-span">&#x3e</span></button>
-                        <div class="panel">
+                        <div class="panel panelDua">
                             <p>Ayam 4ever. Pokoknya apapun yang berhubungan dengan ayam aku paling suka deh. Ntah
                                 digeprek,
                                 bakar, kremes, penyet, apapun itu hehehe</p>
                         </div>
                         <button class="accordion acc-tiga">Apa lagi ya?<span class="acc3-span">&#x3e</span></button>
-                        <div class="panel panel-last">
+                        <div class="panel panelTiga">
                             <p>Gatau bang lorem ipsum aja dah ya. Lorem ipsum dolor sit amet, consectetur adipiscing
                                 elit.
                                 Mauris auctor tempor leo, in euismod libero commodo sit amet. Nullam rutrum felis quis
@@ -121,6 +121,46 @@
         </div>
     </div>
 
+    <div class="slider-wrapper">
+        <div class="container">
+            <div class="slider-content-container">
+                <h2>Slider</h2>
+                <div class="slider-content">
+                    <a class="prev" onclick="updateSlide(-1)">&#10094;</a>
+                    <div class="slider fade">
+                        <img src="1.png">
+                    </div>
+                    <div class="slider fade">
+                        <img src="2.png">
+                    </div>
+                    <div class="slider fade">
+                        <img src="3.png">
+                    </div>
+                    <a class="next" onclick="updateSlide(1)">&#10095;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fizzbuzzgame-wrapper">
+        <div class="container">
+            <div class="game-container">
+                <div class="game-content">
+                    <h2>FizzBuzz Game</h2>
+                    <div class="game-input-container">
+                        <p>Ketik angka: </p>
+                        <input class="input-angka">
+                        <button class="tombol-cek">Cek</button>
+                    </div>
+                    <div class="game-answer-container">
+                        <p class="game-answer"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="contact-wrapper">
         <div class="container">
             <h2>Hubungi Saya</h2>
@@ -129,6 +169,7 @@
             <button class="tombol-kirim">Kirim</button>
         </div>
     </div>
+
 
     <footer>
         <div class="container">

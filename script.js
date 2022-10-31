@@ -115,3 +115,75 @@ tombolCek.addEventListener('click', () => {
         jawaban.innerHTML = `${value}`
     }
 })
+
+const tombolPokeAPI = document.getElementsByClassName("tombol-pokeapi")[0];
+const tombolPokeAPIPikachu = document.getElementsByClassName("tombol-pikachu")[0];
+const panelPokeAPIContainer = document.getElementsByClassName("panel-pokeapi-container")[0];
+
+// Contoh Bentuk 1
+// tombolPokeAPI.addEventListener('click', () => {
+//     panelPokeAPI.innerHTML = "";
+//     const xhttp = new XMLHttpRequest();
+//     const url = "https://pokeapi.co/api/v2/pokemon?limit=15";
+//     const httpMethod = "GET";
+//     xhttp.onload = function() {
+//         const response = JSON.parse(this.responseText);
+//         const results = response.results;
+//         for (i = 0; i < results.length; i++){
+//             panelPokeAPI.innerHTML += `${results[i].name}  <br>`;
+//         }
+//     }
+//     xhttp.open(httpMethod, url);
+//     xhttp.send();
+// })
+
+// Contoh Bentuk 2
+async function fetchData(){
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10", {
+        method: "GET"});
+
+    const json = await response.json();
+    const results = json.results;
+
+    for (i = 0; i < results.length; i++){
+        const response2 = await fetch(`${results[i].url}`, {
+            method: "GET"});
+        const json2 = await response2.json();
+
+        panelPokeAPIContainer.innerHTML += `
+        <div class="pokemon-card-${json2.types[0].type.name}">
+            <p>${json2.name}</p>
+            <img src="${json2.sprites.back_default}"></img>
+            <p>${json2.types[0].type.name}</p>
+        </div>
+        `;
+    }
+
+}
+
+async function fetchDataPikachu(){
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/25", {
+        method: "GET"});
+
+    const json = await response.json();
+    panelPokeAPIContainer.innerHTML = `<p>${json.id}</p>
+    <p>${json.name}</p>
+    <img src="${json.sprites.back_default}"></img>
+    <p>${json.types[0].type.name}</p>`;
+}
+
+tombolPokeAPIPikachu.addEventListener('click', () => {
+    panelPokeAPIContainer.innerHTML = "";
+    panelPokeAPIContainer.style.display = "flex";
+    panelPokeAPIContainer.style.flexDirection = "column";
+    fetchDataPikachu();
+})
+
+tombolPokeAPI.addEventListener('click', () => {
+    panelPokeAPIContainer.innerHTML = "";
+    panelPokeAPIContainer.style.display = "flex";
+    panelPokeAPIContainer.style.flexDirection = "row";
+    panelPokeAPIContainer.style.flexWrap = "wrap";
+    
+    fetchData();
+})

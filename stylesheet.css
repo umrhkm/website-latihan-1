@@ -8,6 +8,7 @@ form, input, div {
 
 * {
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 .clear {
@@ -567,8 +568,90 @@ footer{
 }
 
 .game-answer{
-    padding-bottom: 30px;
     font-size: 20px;
     font-weight: 700;
     opacity: 0.7;
+}
+
+.pokeapi-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.pokeapi-container h2{
+    padding-bottom: 30px;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.tombol-pokeapi-container{
+    display: flex;
+}
+
+.tombol-pokeapi{
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 5px;
+    background-color: rgb(255, 231, 53);
+}
+
+.tombol-pikachu{
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 5px;
+    background-color: rgb(255, 231, 53);
+}
+
+.tombol-pikachu:hover{
+    cursor: pointer;
+    background-color: rgb(230, 208, 41);
+}
+
+.tombol-pokeapi:hover{
+    cursor: pointer;
+    background-color: rgb(230, 208, 41);
+}
+
+.panel-pokeapi-container{
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    border-radius: 10px;
+    padding: 15px 25px;
+    max-width: 75%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 30px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pokemon-card-grass{
+    background-color: rgb(157, 254, 157);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pokemon-card-fire{
+    background-color: rgb(254, 157, 157);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pokemon-card-water{
+    background-color: rgb(157, 238, 254);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pokemon-card-bug{
+    background-color: rgb(181, 181, 181);
+    padding: 10px;
+    border-radius: 5px;
 }

@@ -590,6 +590,10 @@ footer{
 
 .tombol-pokeapi-container{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
 .tombol-pokeapi{
@@ -654,4 +658,106 @@ footer{
     background-color: rgb(181, 181, 181);
     padding: 10px;
     border-radius: 5px;
+}
+
+.weatherapi-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.weatherapi-container h2 {
+    padding-bottom: 30px;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.input-kota{
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0, 0.6);
+    padding: 5px 10px;
+}
+
+.tombol-cari{
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 5px;
+    background-color: rgb(255, 231, 53);
+}
+
+
+.tombol-cari:hover{
+    cursor: pointer;
+    background-color: rgb(230, 208, 41);
+}
+
+.weatherapi-search-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.weatherapi-panel-now-container{
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    border-radius: 10px;
+    padding: 15px 25px;
+    max-width: 75%;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weatherapi-panel-now-container h4{
+    font-size: 16px;
+    font-weight: 700;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.weatherapi-panel-3day-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.weatherapi-panel-3day-container h4{
+    font-size: 16px;
+    font-weight: 700;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.weatherapi-panel-3day{
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    border-radius: 10px;
+    padding: 15px 25px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+    max-width: 75%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }

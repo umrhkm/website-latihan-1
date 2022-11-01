@@ -116,28 +116,12 @@ tombolCek.addEventListener('click', () => {
     }
 })
 
+
+//PokeAPI
 const tombolPokeAPI = document.getElementsByClassName("tombol-pokeapi")[0];
 const tombolPokeAPIPikachu = document.getElementsByClassName("tombol-pikachu")[0];
 const panelPokeAPIContainer = document.getElementsByClassName("panel-pokeapi-container")[0];
 
-// Contoh Bentuk 1
-// tombolPokeAPI.addEventListener('click', () => {
-//     panelPokeAPI.innerHTML = "";
-//     const xhttp = new XMLHttpRequest();
-//     const url = "https://pokeapi.co/api/v2/pokemon?limit=15";
-//     const httpMethod = "GET";
-//     xhttp.onload = function() {
-//         const response = JSON.parse(this.responseText);
-//         const results = response.results;
-//         for (i = 0; i < results.length; i++){
-//             panelPokeAPI.innerHTML += `${results[i].name}  <br>`;
-//         }
-//     }
-//     xhttp.open(httpMethod, url);
-//     xhttp.send();
-// })
-
-// Contoh Bentuk 2
 async function fetchData(){
     const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10", {
         method: "GET"});
@@ -187,3 +171,93 @@ tombolPokeAPI.addEventListener('click', () => {
     
     fetchData();
 })
+
+//Weather API
+const tombolCari = document.getElementsByClassName("tombol-cari")[0]
+const panelWeatherAPI = document.getElementsByClassName("weatherapi-panel-now-container")[0]
+const panel2WeatherAPI = document.getElementsByClassName("weatherapi-panel-3day-container")[0]
+
+
+const getWeatherForecast = async (cityName) => {
+    try {
+      const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${cityName}&days=3`, {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
+          "x-rapidapi-key": "806bb6fda8mshb80e3daa6706bf6p1712c3jsn196736f59f81"
+        },
+      });
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+}
+
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '806bb6fda8mshb80e3daa6706bf6p1712c3jsn196736f59f81',
+		'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+	}
+};
+
+async function fetchDataWeather(namakota){
+
+    const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${namakota}&days=3`, options);
+
+    const json = await response.json();
+
+    panelWeatherAPI.innerHTML += `
+    <h3>Cuaca Kota ${json.location.name} Saat Ini</h3>
+    <p>${json.current.condition.text}</p>
+    <img src="${json.current.condition.icon}">
+    <p>temperatur: ${json.current.temp_c}</p>
+    <p>kelembaban: ${json.current.humidity}</p>
+    <p>terakhir diperbarui pada: ${json.current.last_updated}</p>
+    `
+
+    for (i = 0; i < json.forecast.forecastday.length; i++){
+        const day = json.forecast.forecastday[i];
+        console.log(day);
+        panel2WeatherAPI.innerHTML += `
+        <div class="weatherapi-panel-3day wp${i}">
+            <h3>Cuaca Kota Tanggal ${day.date}</h3>
+            <p>${day.day.condition.text}</p>
+            <img src="${day.day.condition.icon}">
+            <p>temperatur rata-rata: ${day.day.avgtemp_c} &#8451</p>
+            <p>(temperatur minimum: ${day.day.mintemp_c} &#8451,</p>
+            <p>temperatur maksimum: ${day.day.maxtemp_c} &#8451)</p>
+            <p>kelembaban rata-rata: ${day.day.avghumidity} %</p>
+        </div>
+        `
+    }
+
+}
+
+const searchWeather = async () => {
+    const cityName = document.getElementsByClassName("input-kota")[0].value;
+    if (!cityName) {
+        panelWeatherAPI.style.display = "none";
+        panel2WeatherAPI.style.display = "none";
+        return null;
+    }
+  
+    const weatherData = await getWeatherForecast(cityName);
+    if (!weatherData.error) {
+        panelWeatherAPI.innerHTML = "";
+        panel2WeatherAPI.innerHTML = "";
+        panelWeatherAPI.style.backgroundColor = "";
+        panelWeatherAPI.style.display = "flex";
+        panel2WeatherAPI.style.display = "flex";
+        fetchDataWeather(cityName);
+    } else {
+        panelWeatherAPI.style.display = "flex";
+        panelWeatherAPI.innerHTML = `<h4>Nama Kota ${cityName} Tidak Ada</h4>`;
+        panel2WeatherAPI.innerHTML = "";
+        panelWeatherAPI.style.backgroundColor = "rgb(243, 99, 95)";
+    }
+  }

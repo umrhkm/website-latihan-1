@@ -728,7 +728,7 @@ footer{
 }
 
 .weatherapi-panel-3day-container{
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     margin-bottom: 30px;
     justify-content: center;

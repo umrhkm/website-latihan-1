@@ -212,7 +212,7 @@ async function fetchDataWeather(namakota){
     const json = await response.json();
 
     panelWeatherAPI.innerHTML += `
-    <h3>Cuaca Kota ${json.location.name} Saat Ini</h3>
+    <h4>Perkiraan Cuaca Kota ${json.location.name} Saat Ini</h4>
     <p>${json.current.condition.text}</p>
     <img src="${json.current.condition.icon}">
     <p>temperatur: ${json.current.temp_c}</p>
@@ -225,7 +225,7 @@ async function fetchDataWeather(namakota){
         console.log(day);
         panel2WeatherAPI.innerHTML += `
         <div class="weatherapi-panel-3day wp${i}">
-            <h3>Cuaca Kota Tanggal ${day.date}</h3>
+            <h4>Perkiraan Cuaca Kota Tanggal ${day.date}</h4>
             <p>${day.day.condition.text}</p>
             <img src="${day.day.condition.icon}">
             <p>temperatur rata-rata: ${day.day.avgtemp_c} &#8451</p>

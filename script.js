@@ -210,6 +210,7 @@ async function fetchDataWeather(namakota){
     const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${namakota}&days=3`, options);
 
     const json = await response.json();
+    console.log(json)
 
     panelWeatherAPI.innerHTML += `
     <h4>Perkiraan Cuaca Kota ${json.location.name} Saat Ini</h4>
@@ -225,7 +226,7 @@ async function fetchDataWeather(namakota){
         console.log(day);
         panel2WeatherAPI.innerHTML += `
         <div class="weatherapi-panel-3day wp${i}">
-            <h4>Perkiraan Cuaca Kota Tanggal ${day.date}</h4>
+            <h4>Perkiraan Cuaca Kota ${json.location.name} Tanggal ${day.date}</h4>
             <p>${day.day.condition.text}</p>
             <img src="${day.day.condition.icon}">
             <p>temperatur rata-rata: ${day.day.avgtemp_c} &#8451</p>
